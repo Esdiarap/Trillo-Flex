@@ -24,7 +24,7 @@
 
 .sidebar {
   background-color: var(--color-grey-dark-1);
-  height: 80rem;
+  //height: 80rem;
 
   flex: 0 0 18%;
 
@@ -35,5 +35,27 @@
 
 .hotel-view {
   background-color: #fff;
+  flex: 1;
+}
+
+.detail {
+  display: flex;
+  gap: 4.5rem;
+
+  padding: 4.5rem;
+  border-bottom: var(--line);
+}
+
+.description {
+  flex: 0 0 60%;
+
+  background-color: #fff;
+  box-shadow: var(--shadow-light);
+  padding: 3rem;
+
+  font-size: 1.4rem;
+}
+
+.user-reviews {
   flex: 1;
 }
