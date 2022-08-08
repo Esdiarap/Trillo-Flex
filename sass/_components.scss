@@ -307,8 +307,17 @@
   cursor: pointer;
   transition: all .2s;
 
+  & span {
+    margin-left: 3px;
+    transition: margin-left .2s;
+  }
+
   &:hover {
     color: var(--color-grey-dark-1);
+
+    span {
+      margin-left: 8px;
+    }
   }
 
   &:focus {
@@ -404,5 +413,76 @@
 
   &__friends {
 
+  }
+}
+
+/////////////////////////////////////////////
+// review
+.review {
+  background-color: #fff;
+  box-shadow: var(--shadow-light);
+  padding: 3rem;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  overflow: hidden;
+
+  // 给伪元素position
+  position: relative;
+
+  &__text {
+    position: relative;
+    z-index: 10;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+
+    &-box {
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+
+      margin-right: auto;
+    }
+
+    &-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    &-date {
+      font-size: 1rem;
+      color: var(--color-grey-dark-3);
+    }
+  }
+
+  &__photo {
+    max-height: 4.5rem;
+    border-radius: 999rem;
+  }
+
+  &__rating {
+    color: var(--color-primary);
+    font-size: 2.2rem;
+    font-weight: 300;
+  }
+
+  &::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.75rem;
+    left: -10rem;
+    line-height: 1;
+    font-size: 20rem;
+    color: var(--color-grey-light-2);
+    font-family: sans-serif;
+    z-index: 1;
   }
 }
