@@ -161,7 +161,7 @@
     // 同时还有width宽度，后面让他占满
     transform: scaleY(0);
     //transform-origin: bottom;
-    transition: transform .2s, width .4s cubic-bezier(1,0,0,1) .2s, background-color .1s; // 前面的是执行时间，后面的是延迟时间
+    transition: transform .2s, width .4s cubic-bezier(1, 0, 0, 1) .2s, background-color .1s; // 前面的是执行时间，后面的是延迟时间
   }
 
   // hover的时候和具有active类的before
@@ -213,4 +213,122 @@
   color: var(--color-grey-light-4);
   text-align: center;
   padding: 2.5rem;
+}
+
+
+/////////////////////////////////////////////
+// gallery 画廊
+.gallery {
+  display: flex;
+
+  &__photo {
+    max-width: 100%;
+    display: block; // 这是因为inline元素下面会有一点小空隙在里面
+  }
+}
+
+/////////////////////////////////////////////
+// hotel overview
+.overview {
+  display: flex;
+  //justify-content: space-between; // 这样达不到效果
+  align-items: center;
+  border-bottom: 1px solid var(--color-grey-light-2);
+
+  &__heading {
+    font-size: 2.25rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 1.5rem 3rem;
+  }
+
+  &__stars {
+    //flex: 1; // 这样这个元素的width就太多了 不可以
+    margin-right: auto;
+    // SVG icons有点像文本 是个inline元素，身边会有一些小空白。可以通过父元素设置为flex
+    // 让子元素成为flex-item来消除这些空白
+    display: flex;
+  }
+
+  &__icon-star,
+  &__icon-location {
+    height: 1.75rem;
+    width: 1.75rem;
+    fill: var(--color-primary);
+  }
+
+  &__location {
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__icon-location {
+    margin-right: .5rem;
+  }
+
+  &__rating {
+    background-color: var(--color-primary);
+    margin-left: 3rem;
+    color: #fff;
+    align-self: stretch;
+    padding: 0 2.25rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__rating-average {
+    font-size: 2.25rem;
+    font-weight: 300;
+    margin-bottom: -3px;
+  }
+
+  &__rating-count {
+    font-size: .8rem;
+    text-transform: uppercase;
+  }
+}
+
+/////////////////////////////////////////////
+// hotel view右边的inline button
+.btn-inline {
+  border: none;
+  color: var(--color-primary);
+  font-size: inherit; // 继承字体大小
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  display: inline-block;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all .2s;
+
+  &:hover {
+    color: var(--color-grey-dark-1);
+  }
+
+  &:focus {
+    animation: pulsate 1s infinite;
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, .25);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: none;
+  }
 }
