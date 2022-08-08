@@ -1,0 +1,133 @@
+//////////////////////////////////////////////
+// LOGO
+.logo {
+  height: 3.25rem;
+  margin-left: 3rem;
+}
+
+/////////////////////////////////////////////
+// Search搜索框
+.search {
+  flex: 0 0 40%;
+
+  // 设置flex
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__input {
+    // input 不会自动继承font family和font-size
+    font-family: 'Open Sans', sans-serif;
+    // 这里font-size继承的是header的大小，如果没设置就是继承的html的
+    font-size: inherit;
+    background-color: var(--color-grey-light-2);
+    border: none;
+    padding: .7rem 2rem;
+    border-radius: 999rem;
+
+    // hover的时候变大
+    width: 90%;
+    transition: all .2s;
+    margin-right: -3.25rem;
+
+    &:focus {
+      outline: none;
+      width: 100%;
+      background-color: var(--color-grey-light-3);
+    }
+
+    &:-ms-input-placeholder,
+    &::-ms-input-placeholder,
+    &::-webkit-input-placeholder {
+      font-weight: 100;
+      color: var(--color-grey-light-4);
+    }
+  }
+
+  &__input:focus + &__button {
+    background-color: var(--color-grey-light-3);
+  }
+
+  &__button {
+    border: none;
+    background-color: var(--color-grey-light-2);
+
+    &:focus {
+      outline: none;
+    }
+
+    // 往下一点
+    &:active {
+      transform: translateY(2px);
+    }
+  }
+
+  &__icon {
+    // 通过width和height控制svg图标的大小
+    height: 2rem;
+    width: 2rem;
+    fill: var(--color-grey-dark-3);
+  }
+}
+
+/////////////////////////////////////////////
+// 用户导航user navigation
+.user-nav {
+  // 通过align-self把自己的高度拉满
+  // 然后下面的直接后代通过height 100%就能和自己一样高了
+  align-self: stretch;
+
+  display: flex;
+  //align-items: center;
+
+  & > * {
+    padding: 0 2rem;
+    cursor: pointer;
+
+    // height 100%跟父亲一样高
+    height: 100%;
+    // 直接子容器，通过flex进行居中
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      background-color: var(--color-grey-light-2);
+    }
+  }
+
+
+  &__icon-box {
+    position: relative; // 提供定位
+  }
+
+  &__icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    fill: var(--color-grey-dark-2);
+  }
+
+  &__notification {
+    font-size: .8rem;
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 999rem; // 足够大
+    background-color: var(--color-primary);
+    color: #fff;
+
+    // 定位
+    position: absolute;
+    top: 1.5rem;
+    right: 1.1rem;
+
+    // 居中文字
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__user-photo {
+    height: 3.75rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+}
